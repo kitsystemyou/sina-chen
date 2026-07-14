@@ -22,7 +22,7 @@ function App() {
       if (file.type === 'application/pdf') {
         setFile(file);
       } else {
-        setError('PDFファイルのみ対応しておりますわ。');
+        setError('PDFファイルのみ対応しています。');
       }
     }
   };
@@ -44,7 +44,7 @@ function App() {
       const diffs = computeDiff(text1, text2);
       setDiffResult(diffs);
     } catch (err) {
-      setError(err.message || '差分抽出中にエラーが発生いたしましたわ。');
+      setError(err.message || '差分抽出中にエラーが発生しました。');
     } finally {
       setLoading(false);
     }
@@ -54,7 +54,7 @@ function App() {
     <div className="app-container">
       <div className="header">
         <h1>シナチェン！</h1>
-        <p>新旧のシナリオPDFを比較し、判定や条件の変更点を優雅に強調表示いたしますわ。</p>
+        <p>新旧のシナリオPDFを比較し、判定や条件の変更点を強調表示します。</p>
       </div>
 
       <div className="glass-panel">
@@ -86,7 +86,7 @@ function App() {
             ) : (
               <>
                 <strong>変更前（旧）シナリオを選択</strong>
-                <p>またはドラッグ＆ドロップしてくださいませ</p>
+                <p>またはドラッグ＆ドロップしてください</p>
               </>
             )}
           </div>
@@ -112,7 +112,7 @@ function App() {
             ) : (
               <>
                 <strong>変更後（新）シナリオを選択</strong>
-                <p>またはドラッグ＆ドロップしてくださいませ</p>
+                <p>またはドラッグ＆ドロップしてください</p>
               </>
             )}
           </div>
@@ -125,7 +125,7 @@ function App() {
             disabled={!file1 || !file2 || loading}
           >
             {loading ? (
-              <><span className="loading-spinner"></span> 解析中でございます...</>
+              <><span className="loading-spinner"></span> 解析中...</>
             ) : (
               '差分を確認する'
             )}
@@ -150,7 +150,7 @@ function App() {
         {diffResult && (
           <div className="diff-result">
             <div className="diff-header">
-              <div className="diff-header-col">比較結果（★印はTRPG的要素の変更点ですわ）</div>
+              <div className="diff-header-col">比較結果（★印はTRPGの重要な変更点です）</div>
             </div>
             <div className="diff-content">
               {diffResult.map((part, index) => {

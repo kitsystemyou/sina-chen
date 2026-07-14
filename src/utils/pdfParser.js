@@ -38,6 +38,6 @@ export const extractTextFromPdf = async (file) => {
     return fullText;
   } catch (error) {
     console.error('Error parsing PDF:', error);
-    throw new Error('PDFの読み込みに失敗いたしました。パスワード等がかかっていないかご確認くださいませ。');
+    throw new Error('PDFの読み込みに失敗しました。パスワード等がかかっていないか確認してください。');
   }
 };

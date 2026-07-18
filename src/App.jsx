@@ -8,6 +8,7 @@ function App() {
   const [diffResult, setDiffResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [filterImportantOnly, setFilterImportantOnly] = useState(false);
 
   const handleFileChange = (e, setFile) => {
     if (e.target.files && e.target.files[0]) {
@@ -119,17 +120,31 @@ function App() {
         </div>
 
         <div className="diff-controls">
-          <button 
-            className="btn-primary" 
-            onClick={handleCompare}
-            disabled={!file1 || !file2 || loading}
-          >
-            {loading ? (
-              <><span className="loading-spinner"></span> 解析中...</>
-            ) : (
-              '差分を確認する'
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+            <button 
+              className="btn-primary" 
+              onClick={handleCompare}
+              disabled={!file1 || !file2 || loading}
+            >
+              {loading ? (
+                <><span className="loading-spinner"></span> 解析中...</>
+              ) : (
+                '差分を確認する'
+              )}
+            </button>
+
+            {diffResult && (
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: 'bold', color: 'var(--text-main)', background: 'rgba(255,255,255,0.6)', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <input 
+                  type="checkbox" 
+                  checked={filterImportantOnly}
+                  onChange={(e) => setFilterImportantOnly(e.target.checked)}
+                  style={{ transform: 'scale(1.2)' }}
+                />
+                ★ TRPGで重要そうな変更のみを表示
+              </label>
             )}
-          </button>
+          </div>
 
           <div className="legend">
             <div className="legend-item">
@@ -154,6 +169,10 @@ function App() {
             </div>
             <div className="diff-content">
               {diffResult.map((part, index) => {
+                if (filterImportantOnly && !part.isImportant) {
+                  return null;
+                }
+
                 let className = 'diff-line';
                 if (part.added) className += ' diff-added';
                 if (part.removed) className += ' diff-removed';

@@ -142,7 +142,7 @@ function App() {
             </div>
             <div className="legend-item">
               <span className="legend-color trpg"></span>
-              <span className="legend-text"><strong style={{color: '#EBB066'}}>★</strong> TRPG重要な変更</span>
+              <span className="legend-text"><strong style={{color: '#EBB066'}}>★</strong> TRPGで重要そうな変更</span>
             </div>
           </div>
         </div>

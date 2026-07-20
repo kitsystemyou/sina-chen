@@ -55,6 +55,9 @@ function App() {
     <div className="app-container">
       <div className="header">
         <h1>シナチェン！</h1>
+        <div style={{ fontSize: '1.2rem', color: 'var(--primary-hover)', margin: '-0.5rem 0 1.5rem 0', fontWeight: '500', letterSpacing: '1px' }}>
+          Scenario Change Viewer
+        </div>
         <p>新旧のシナリオPDFを比較し、判定や条件の変更点を強調表示します。</p>
       </div>
 

@@ -1,4 +1,4 @@
-# シナチェン！ (TRPG Scenario PDF Diff Tool)
+# シナチェン！ (Scenario Change Viewer)
 
 ## ツールの目的
 「シナチェン！」は、新旧のTRPGシナリオ（PDF形式）を比較し、変更された箇所を簡単に確認するためのブラウザ向けツールです。
